@@ -1,6 +1,8 @@
 package net.kaihallow.magicalcraft;
 
 import com.mojang.logging.LogUtils;
+import net.kaihallow.magicalcraft.block.ModBlocks;
+import net.kaihallow.magicalcraft.item.ModItems;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.food.FoodProperties;
@@ -42,6 +44,9 @@ public class MagicalCraft
     {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
+        ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
+
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
 
@@ -68,7 +73,15 @@ public class MagicalCraft
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event)
     {
+        if (event.getTabKey() == CreativeModeTabs.INGREDIENTS)
+        {
+            event.accept(ModItems.BLUE_CRYSTAL);
+        }
 
+        if (event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES)
+        {
+            event.accept(ModItems.SCEPTER);
+        }
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
