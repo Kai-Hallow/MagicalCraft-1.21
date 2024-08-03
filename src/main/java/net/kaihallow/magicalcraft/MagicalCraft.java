@@ -1,5 +1,6 @@
 package net.kaihallow.magicalcraft;
 
+
 import com.mojang.logging.LogUtils;
 import net.kaihallow.magicalcraft.block.ModBlocks;
 import net.kaihallow.magicalcraft.item.ModItems;
@@ -49,6 +50,7 @@ public class MagicalCraft
 
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
+        modEventBus.addListener(this::addCreative);
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
