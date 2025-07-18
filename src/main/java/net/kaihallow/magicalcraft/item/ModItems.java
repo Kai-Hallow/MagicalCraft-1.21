@@ -12,10 +12,13 @@ public class ModItems {
             DeferredRegister.create(ForgeRegistries.ITEMS, MagicalCraft.MODID);
 
     public static final RegistryObject<Item> SCEPTER = ITEMS.register("scepter",
-            () -> new Item(new Item.Properties()));
+            () -> new Item(new Item.Properties().stacksTo(1)));
 
     public static final RegistryObject<Item> BLUE_CRYSTAL = ITEMS.register("blue_crystal",
             () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> TOME = ITEMS.register("tome",
+            () -> new Item(new Item.Properties().stacksTo(1)));
 
     public static void register(IEventBus eventBus){
         ITEMS.register(eventBus);
