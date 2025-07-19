@@ -23,6 +23,9 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.ForgeRegistries;
 import org.slf4j.Logger;
 
+import static net.kaihallow.magicalcraft.item.ModItems.*;
+import static net.kaihallow.magicalcraft.block.ModBlocks.*;
+
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(MagicalCraft.MODID)
 public class MagicalCraft
@@ -70,12 +73,19 @@ public class MagicalCraft
     {
         if (event.getTabKey() == CreativeModeTabs.INGREDIENTS)
         {
-            event.accept(ModItems.BLUE_CRYSTAL);
+            event.accept(BLUE_CRYSTAL);
         }
 
         if (event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES)
         {
-            event.accept(ModItems.SCEPTER);
+            event.accept(SCEPTER);
+            event.accept(TOME);
+        }
+
+        if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS)
+        {
+            event.accept(BLUE_CRYSTAL_BLOCK);
+            event.accept(LIGHTNING_CRYSTAL_ORE);
         }
     }
 
